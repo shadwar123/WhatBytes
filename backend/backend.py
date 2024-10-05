@@ -19,7 +19,7 @@ Session(app)
 cors = CORS(app, supports_credentials=True, resources={r"/*": {"origins": "*"}})
 
 # MongoDB connection
-client = MongoClient('mongodb+srv://shadwarnayyar872:EuKuqx7M0IvJDSSE@cluster0.sjxm0.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0')
+client = MongoClient(os.getenv('MONGODB_URI'))
 db = client.get_database('manit')
 
 @app.route("/login", methods=["GET", "POST"])
@@ -44,8 +44,8 @@ def login():
 
 # Function to send a password reset email
 def send_reset_email(email, reset_token):
-    email_sender = ''
-    email_password = ''  # Replace with your actual app-specific password
+    email_sender = os.getenv('EMAIL_SENDER')
+    email_password = os.getenv('EMAIL_PASSWORD')
     email_receiver = email
 
     subject = 'Password Reset Request'
