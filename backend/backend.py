@@ -44,8 +44,8 @@ def login():
 
 # Function to send a password reset email
 def send_reset_email(email, reset_token):
-    email_sender = 'shadwarnayyar@gmail.com'
-    email_password = 'jzoxreouzrbbufoc'  # Replace with your actual app-specific password
+    email_sender = ''
+    email_password = ''  # Replace with your actual app-specific password
     email_receiver = email
 
     subject = 'Password Reset Request'
